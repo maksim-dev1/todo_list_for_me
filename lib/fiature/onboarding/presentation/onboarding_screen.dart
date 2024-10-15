@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:todo_list_for_me/fiature/login/presentation/login_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -42,7 +43,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 _currentIndex = index;
               });
             },
-            //physics: const NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: 3,
             itemBuilder: (context, index) {
               switch (index) {
@@ -156,7 +157,7 @@ class FirstPageOnboarding extends StatelessWidget {
                 'assets/onboarding/logo_onboarding.svg',
               ),
               Text(
-                'ToDo List',
+                'To Do',
                 style: TextStyle(
                     color: Theme.of(context).colorScheme.onPrimary,
                     fontSize: 26,
@@ -337,7 +338,7 @@ class WelcomePage extends StatelessWidget {
                         color: Theme.of(context).colorScheme.onSurface),
                   ),
                   TextSpan(
-                      text: 'To Do List',
+                      text: 'To Do',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
@@ -363,7 +364,14 @@ class WelcomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginScreen(),
+                    ),
+                  );
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -434,7 +442,9 @@ class WelcomePage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        //Вход через вк
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -472,7 +482,9 @@ class WelcomePage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        //Вход через гугл
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
