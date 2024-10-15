@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:todo_list_for_me/fiature/login/presentation/login_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -43,7 +42,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 _currentIndex = index;
               });
             },
-            physics: const NeverScrollableScrollPhysics(),
+            //physics: const NeverScrollableScrollPhysics(),
             itemCount: 3,
             itemBuilder: (context, index) {
               switch (index) {
@@ -101,9 +100,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
           Positioned(
             bottom: 50,
+            right: 16,
+            left: 16,
             child: SizedBox(
-              width: 300,
-              height: 50,
+              width: double.infinity,
+              height: 56,
               child: ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(
@@ -200,7 +201,7 @@ class SecondPageOnboarding extends StatelessWidget {
                 child: Image.asset(
                     'assets/onboarding/onboarding_second_image.webp')),
             Positioned(
-              bottom: 330,
+              bottom: 295,
               left: 0,
               right: 0,
               child: Align(
@@ -221,7 +222,7 @@ class SecondPageOnboarding extends StatelessWidget {
               ),
             ),
             const Positioned(
-              bottom: 240,
+              bottom: 200,
               left: 0,
               right: 0,
               child: Align(
@@ -266,16 +267,16 @@ class ThirdPageOnboarding extends StatelessWidget {
                 child: Image.asset(
                     'assets/onboarding/onboarding_third_image.webp')),
             Positioned(
-              bottom: 320,
+              bottom: 295,
               left: 0,
               right: 0,
               child: Align(
                 child: SizedBox(
-                  width: 300,
+                  width: 350,
                   child: Text(
                     'Оцените удобство создания вашего списка дел',
                     style: TextStyle(
-                      fontSize: 26,
+                      fontSize: 24,
                       fontWeight: FontWeight.w600,
                       color: Theme.of(context).colorScheme.onSurface,
                       height: 1,
@@ -287,7 +288,7 @@ class ThirdPageOnboarding extends StatelessWidget {
               ),
             ),
             const Positioned(
-              bottom: 230,
+              bottom: 200,
               left: 0,
               right: 0,
               child: Align(
