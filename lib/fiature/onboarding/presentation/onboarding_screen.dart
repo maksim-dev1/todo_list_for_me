@@ -59,7 +59,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             },
           ),
           Positioned(
-            top: 55,
+            top: 25,
             right: 10,
             child: TextButton(
               onPressed: () {
@@ -102,7 +102,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           Positioned(
             bottom: 50,
             child: SizedBox(
-              //TODO: Сделать динамическую ширину кнопки
               width: 300,
               height: 50,
               child: ElevatedButton(
@@ -321,8 +320,8 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        //TODO: Подобрать отступы или вообще убрать падинг, смотря как будет смотреться
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding:
+            const EdgeInsets.only(left: 16, right: 16, top: 76, bottom: 16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -332,11 +331,15 @@ class WelcomePage extends StatelessWidget {
                   TextSpan(
                     text: 'Добро пожаловать в ',
                     style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
                         color: Theme.of(context).colorScheme.onSurface),
                   ),
                   TextSpan(
-                      text: 'To Do List for Me',
+                      text: 'To Do List',
                       style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
                           color: Theme.of(context).colorScheme.primary))
                 ],
               ),
@@ -345,21 +348,151 @@ class WelcomePage extends StatelessWidget {
               height: 50,
             ),
             Image.asset('assets/onboarding/onboarding_last_image.webp'),
+            const Spacer(),
             SizedBox(
               width: double.infinity,
-              height: 50,
+              height: 56,
               child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(
-                        Theme.of(context).colorScheme.primary),
-                    shape: WidgetStatePropertyAll(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
+                style: ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(
+                      Theme.of(context).colorScheme.primary),
+                  shape: WidgetStatePropertyAll(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                  ),
+                ),
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset('assets/onboarding/email_icon.svg'),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      'Продолжить с email',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Theme.of(context).colorScheme.onPrimary),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            const Row(
+              children: [
+                Expanded(
+                  child: Divider(
+                    color: Color.fromRGBO(118, 126, 140, 1),
+                    thickness: 0.5,
+                  ),
+                ),
+                SizedBox(
+                  width: 16,
+                ),
+                Text(
+                  'Продолжить с',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    color: Color.fromRGBO(118, 126, 140, 1),
+                  ),
+                ),
+                SizedBox(
+                  width: 16,
+                ),
+                Expanded(
+                  child: Divider(
+                    color: Color.fromRGBO(118, 126, 140, 1),
+                    thickness: 0.5,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: 56,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: const WidgetStatePropertyAll(
+                          Color.fromRGBO(243, 245, 249, 1),
+                        ),
+                        shape: WidgetStatePropertyAll(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(
+                              'assets/onboarding/brend_vk_icon.svg'),
+                          const SizedBox(
+                            width: 13,
+                          ),
+                          Text(
+                            'Вконтакте',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Theme.of(context).colorScheme.onSurface),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                  onPressed: () {},
-                  child: Text('Продолжить с email')),
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                Expanded(
+                  child: SizedBox(
+                    height: 56,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: const WidgetStatePropertyAll(
+                          Color.fromRGBO(243, 245, 249, 1),
+                        ),
+                        shape: WidgetStatePropertyAll(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(
+                              'assets/onboarding/brend_google_icon.svg'),
+                          const SizedBox(
+                            width: 13,
+                          ),
+                          Text(
+                            'Google',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Theme.of(context).colorScheme.onSurface),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             )
           ],
         ),
