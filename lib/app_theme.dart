@@ -6,7 +6,7 @@ const lightColorScheme = ColorScheme(
   onPrimary: Color(0xFFFFFFFF),
   secondary: Color.fromRGBO(147, 216, 213, 1),
   onSecondary: Color(0xFF000000),
-  surface: Color.fromRGBO(246, 247, 249, 1), 
+  surface: Color.fromRGBO(246, 247, 249, 1),
   onSurface: Color.fromRGBO(27, 28, 31, 1),
   error: Color.fromRGBO(255, 72, 106, 1),
   onError: Color(0xFFFFFFFF),
@@ -16,9 +16,9 @@ const lightColorScheme = ColorScheme(
 );
 
 final appThemeLightData = ThemeData(
+  scaffoldBackgroundColor: lightColorScheme.onPrimary,
   useMaterial3: true,
   colorScheme: lightColorScheme,
-  fontFamily: 'Roboto'
 );
 
 // final ColorScheme colorSchemeDark = ColorScheme.fromSeed(
