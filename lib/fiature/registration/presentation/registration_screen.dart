@@ -1,30 +1,23 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:todo_list_for_me/common/widgets/custom_text_from_field.dart';
-import 'package:todo_list_for_me/fiature/onboarding/presentation/onboarding_screen.dart';
-import 'package:todo_list_for_me/fiature/registration/presentation/registration_screen.dart';
+import 'package:todo_list_for_me/fiature/login/presentation/login_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegistrationScreen extends StatefulWidget {
+  const RegistrationScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegistrationScreenState extends State<RegistrationScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool _isVisibilityPasword = true;
+  bool _isVisibilityReplayPasword = true;
 
   final _formKey = GlobalKey<FormState>();
-
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Center(
                         child: Text(
-                          'С возвращением!',
+                          'Создать аккаунт',
                           style: Theme.of(context)
                               .textTheme
                               .headlineSmall
@@ -52,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'С приложением To Do ваша работа станет быстрее и структурированнее',
+                        'Создайте свою учетную запись и ощутите все преимущества',
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               color: const Color.fromRGBO(118, 126, 140, 1),
@@ -81,6 +74,29 @@ class _LoginScreenState extends State<LoginScreen> {
                             final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
                             if (!emailRegex.hasMatch(trimmedValue)) {
                               return 'Введите корректный email';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      Text('Имя пользователя',
+                          style: Theme.of(context).textTheme.titleMedium),
+                      Focus(
+                        onFocusChange: (hasFocus) {
+                          if (!hasFocus) {
+                            setState(() {
+                              _formKey.currentState!.validate();
+                            });
+                          }
+                        },
+                        child: CustomTextFromField(
+                          controller: emailController,
+                          hintText: 'Введите имя',
+                          validator: (value) {
+                            final trimmedValue = value?.trim();
+                            if (trimmedValue == null || trimmedValue.isEmpty) {
+                              return 'Введите имя';
                             }
                             return null;
                           },
@@ -134,8 +150,43 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                         ),
                       ),
-                      const SizedBox(
-                        height: 20,
+                      const SizedBox(height: 12),
+                      Text('Повторите пароль',
+                          style: Theme.of(context).textTheme.titleMedium),
+                      Focus(
+                        onFocusChange: (hasFocus) {
+                          if (!hasFocus) {
+                            setState(() {
+                              _isVisibilityReplayPasword = true;
+                              _formKey.currentState!.validate();
+                            });
+                          }
+                        },
+                        child: CustomTextFromField(
+                          obscureText: _isVisibilityReplayPasword,
+                          hintText: 'Введите пароль повторно',
+                          suffixIcon: IconButton(
+                            icon: _isVisibilityReplayPasword
+                                ? SvgPicture.asset(
+                                    'assets/onboarding/eye_closed_icon.svg')
+                                : SvgPicture.asset(
+                                    'assets/onboarding/eye_open_icon.svg'),
+                            onPressed: () {
+                              setState(() {
+                                _isVisibilityReplayPasword =
+                                    !_isVisibilityReplayPasword;
+                              });
+                            },
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Введите пароль повторно';
+                            } else if (value != passwordController.text) {
+                              return 'Пароли не совпадают';
+                            }
+                            return null;
+                          },
+                        ),
                       ),
                     ],
                   ),
@@ -157,16 +208,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const OnboardingScreen(),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => const OnboardingScreen(),
+                    //   ),
+                    // );
                   }
                 },
                 child: Text(
-                  'Войти',
+                  'Зарегистроваться',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontSize: 18,
                       color: Theme.of(context).colorScheme.onPrimary),
@@ -181,13 +232,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: 'У вас ещё нет аккаунта? ',
+                      text: 'У вас уже есть аккаунт? ',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: const Color.fromRGBO(118, 126, 140, 1),
                           ),
                     ),
                     TextSpan(
-                      text: 'Создать',
+                      text: 'Войти',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: Theme.of(context).colorScheme.primary,
                           ),
@@ -196,7 +247,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const RegistrationScreen(),
+                              builder: (context) => const LoginScreen(),
                             ),
                           );
                         },
