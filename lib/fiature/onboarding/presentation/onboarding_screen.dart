@@ -72,13 +72,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               },
               child: Text(
                 'Пропустить',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: _currentIndex == 0
-                      ? Theme.of(context).colorScheme.onPrimary
-                      : Theme.of(context).colorScheme.primary,
-                ),
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: _currentIndex == 0
+                          ? Theme.of(context).colorScheme.onPrimary
+                          : Theme.of(context).colorScheme.primary,
+                    ),
               ),
             ),
           ),
@@ -122,13 +120,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 onPressed: _onContinuePressed,
                 child: Text(
                   'Продолжить',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: _currentIndex == 0
-                        ? Theme.of(context).colorScheme.primary
-                        : Theme.of(context).colorScheme.onPrimary,
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontSize: 18,
+                        color: _currentIndex == 0
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).colorScheme.onPrimary,
+                      ),
                 ),
               ),
             ),
@@ -158,20 +155,18 @@ class FirstPageOnboarding extends StatelessWidget {
               ),
               Text(
                 'To Do',
-                style: TextStyle(
-                    color: Theme.of(context).colorScheme.onPrimary,
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     fontSize: 26,
-                    fontWeight: FontWeight.w700),
+                    fontWeight: FontWeight.w700,
+                    color: Theme.of(context).colorScheme.onPrimary),
               ),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 50, vertical: 5),
                 child: Text(
                   'Лучшее приложение для планирования задач — это то, что вам нужно!',
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.onPrimary,
-                    fontSize: 14,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: Theme.of(context).colorScheme.onPrimary),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -210,19 +205,18 @@ class SecondPageOnboarding extends StatelessWidget {
                   width: 300,
                   child: Text(
                     'Для вашего удобства составьте список дел',
-                    style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.w600,
-                      color: Theme.of(context).colorScheme.onSurface,
-                      height: 1,
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                          fontSize: 26,
+                          fontWeight: FontWeight.w600,
+                          color: Theme.of(context).colorScheme.onSurface,
+                        ),
                     textAlign: TextAlign.center,
                     softWrap: true,
                   ),
                 ),
               ),
             ),
-            const Positioned(
+            Positioned(
               bottom: 200,
               left: 0,
               right: 0,
@@ -231,11 +225,9 @@ class SecondPageOnboarding extends StatelessWidget {
                   width: 330,
                   child: Text(
                     'Вот мобильная платформа, которая поможет вам создавать задачи или составлять списки, чтобы выполнять любую работу проще и быстрее.',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: Color.fromRGBO(118, 126, 140, 1),
-                    ),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: const Color.fromRGBO(118, 126, 140, 1),
+                        ),
                     textAlign: TextAlign.center,
                     softWrap: true,
                   ),
@@ -276,19 +268,18 @@ class ThirdPageOnboarding extends StatelessWidget {
                   width: 350,
                   child: Text(
                     'Оцените удобство создания вашего списка дел',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600,
-                      color: Theme.of(context).colorScheme.onSurface,
-                      height: 1,
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                          fontSize: 26,
+                          fontWeight: FontWeight.w600,
+                          color: Theme.of(context).colorScheme.onSurface,
+                        ),
                     textAlign: TextAlign.center,
                     softWrap: true,
                   ),
                 ),
               ),
             ),
-            const Positioned(
+            Positioned(
               bottom: 200,
               left: 0,
               right: 0,
@@ -297,11 +288,9 @@ class ThirdPageOnboarding extends StatelessWidget {
                   width: 350,
                   child: Text(
                     'Простой и понятный интерфейс, который делает работу с приложением удобнее при создании задач или списков дел, может также повысить вашу продуктивность.',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: Color.fromRGBO(118, 126, 140, 1),
-                    ),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: const Color.fromRGBO(118, 126, 140, 1),
+                        ),
                     textAlign: TextAlign.center,
                     softWrap: true,
                   ),
@@ -331,15 +320,14 @@ class WelcomePage extends StatelessWidget {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Добро пожаловать в ',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color: Theme.of(context).colorScheme.onSurface),
-                  ),
+                      text: 'Добро пожаловать в ',
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                          color: Theme.of(context).colorScheme.onSurface)),
                   TextSpan(
                       text: 'To Do',
-                      style: TextStyle(
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
                           color: Theme.of(context).colorScheme.primary))
@@ -381,9 +369,8 @@ class WelcomePage extends StatelessWidget {
                     ),
                     Text(
                       'Продолжить с email',
-                      style: TextStyle(
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           fontSize: 18,
-                          fontWeight: FontWeight.w500,
                           color: Theme.of(context).colorScheme.onPrimary),
                     ),
                   ],
@@ -393,29 +380,27 @@ class WelcomePage extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            const Row(
+            Row(
               children: [
-                Expanded(
+                const Expanded(
                   child: Divider(
                     color: Color.fromRGBO(118, 126, 140, 1),
                     thickness: 0.5,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 16,
                 ),
                 Text(
                   'Продолжить с',
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    color: Color.fromRGBO(118, 126, 140, 1),
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: const Color.fromRGBO(118, 126, 140, 1),
+                      ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 16,
                 ),
-                Expanded(
+                const Expanded(
                   child: Divider(
                     color: Color.fromRGBO(118, 126, 140, 1),
                     thickness: 0.5,
@@ -455,10 +440,13 @@ class WelcomePage extends StatelessWidget {
                           ),
                           Text(
                             'Вконтакте',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Theme.of(context).colorScheme.onSurface),
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface),
                           ),
                         ],
                       ),
@@ -495,10 +483,13 @@ class WelcomePage extends StatelessWidget {
                           ),
                           Text(
                             'Google',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Theme.of(context).colorScheme.onSurface),
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface),
                           ),
                         ],
                       ),

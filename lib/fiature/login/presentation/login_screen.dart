@@ -27,8 +27,10 @@ class LoginScreen extends StatelessWidget {
               color: Color.fromRGBO(118, 126, 140, 1),
             ),
           ),
+          SizedBox(height: 49,),
+          Text('Введите email', style: TextStyle(),),
         ],
       ),
-    ));
+    ),);
   }
 }

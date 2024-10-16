@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const lightColorScheme = ColorScheme(
   brightness: Brightness.light,
@@ -19,6 +20,7 @@ final appThemeLightData = ThemeData(
   scaffoldBackgroundColor: lightColorScheme.onPrimary,
   useMaterial3: true,
   colorScheme: lightColorScheme,
+  fontFamily: GoogleFonts.roboto().fontFamily,
 );
 
 // final ColorScheme colorSchemeDark = ColorScheme.fromSeed(
