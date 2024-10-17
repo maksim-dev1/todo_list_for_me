@@ -21,6 +21,11 @@ final appThemeLightData = ThemeData(
   useMaterial3: true,
   colorScheme: lightColorScheme,
   fontFamily: GoogleFonts.roboto().fontFamily,
+  //TODO: Добавить стиль для кнопок
+  // buttonTheme: ButtonThemeData(
+  //   buttonColor: lightColorScheme.primary,
+
+  // )
 );
 
 // final ColorScheme colorSchemeDark = ColorScheme.fromSeed(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list_for_me/app_theme.dart';
-import 'package:todo_list_for_me/fiature/onboarding/presentation/onboarding_screen.dart';
+import 'package:todo_list_for_me/fiature/home/presentation/screens/create_todo_screen.dart';
+import 'package:todo_list_for_me/fiature/home/presentation/screens/home_screen.dart';
+import 'package:todo_list_for_me/fiature/onboarding/presentation/screens/onboarding_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -10,6 +12,8 @@ class App extends StatelessWidget {
     return MaterialApp(
         theme: appThemeLightData,
         themeMode: ThemeMode.system,
-        home: const OnboardingScreen());
+        home:
+            const CreateTodoScreen() //const OnboardingScreen(), поменять обратно на онбординг
+        );
   }
 }
