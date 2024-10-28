@@ -231,7 +231,7 @@ class _CreateTodoScreenState extends State<CreateTodoScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MenuScreen(
+                        builder: (context) => HomeScreen(
                           colorIndex: colorIndex!,
                         ),
                       ),

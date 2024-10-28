@@ -58,6 +58,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/onboarding/
+    - assets/home/
+
 
   # fonts:
   #   - family: Roboto
