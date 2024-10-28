@@ -1,4 +1,23 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+
+class MenuScreen extends StatelessWidget {
+  final int colorIndex;
+  const MenuScreen({super.key, required this.colorIndex});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(padding: EdgeInsets.all(0),
+      child: Row(
+        children: [
+          
+        ],
+      ),
+      ),
+    );
+  }
+}
+
 
 // class HomeScreen extends StatefulWidget {
 //   const HomeScreen({super.key});

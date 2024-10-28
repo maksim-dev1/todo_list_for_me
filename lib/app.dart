@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list_for_me/app_theme.dart';
 import 'package:todo_list_for_me/fiature/home/presentation/screens/create_todo_screen.dart';
-import 'package:todo_list_for_me/fiature/home/presentation/screens/home_screen.dart';
+import 'package:todo_list_for_me/fiature/home/presentation/screens/menu_screen.dart';
 import 'package:todo_list_for_me/fiature/onboarding/presentation/screens/onboarding_screen.dart';
 
 class App extends StatelessWidget {
@@ -13,7 +13,8 @@ class App extends StatelessWidget {
         theme: appThemeLightData,
         themeMode: ThemeMode.system,
         home:
-            const CreateTodoScreen() //const OnboardingScreen(), поменять обратно на онбординг
+            const CreateTodoScreen()
+            // const OnboardingScreen(), //поменять обратно на онбординг
         );
   }
 }

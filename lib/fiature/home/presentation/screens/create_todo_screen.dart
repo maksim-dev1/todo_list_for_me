@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:todo_list_for_me/common/colors/colors.dart';
+
+import 'menu_screen.dart';
 
 class CreateTodoScreen extends StatefulWidget {
   const CreateTodoScreen({super.key});
@@ -9,14 +12,7 @@ class CreateTodoScreen extends StatefulWidget {
 }
 
 class _CreateTodoScreenState extends State<CreateTodoScreen> {
-  List<Color> colorsTask = const <Color>[
-    Color.fromRGBO(36, 161, 156, 1),
-    Color.fromRGBO(27, 28, 31, 1),
-    Color.fromRGBO(234, 67, 53, 1),
-    Color.fromRGBO(24, 119, 242, 1),
-  ];
-
-  int? selectedTaskIndex; // Добавлено для хранения выбранного индекса
+  int? colorIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +57,7 @@ class _CreateTodoScreenState extends State<CreateTodoScreen> {
                           InkWell(
                             onTap: () {
                               setState(() {
-                                selectedTaskIndex = index;
+                                colorIndex = index;
                               });
                             },
                             child: Column(
@@ -177,8 +173,7 @@ class _CreateTodoScreenState extends State<CreateTodoScreen> {
                             top: -10,
                             child: Builder(
                               builder: (context) {
-                                // Отображаем бейдж только для выбранного индекса
-                                if (selectedTaskIndex == index) {
+                                if (colorIndex == index) {
                                   return SizedBox(
                                     width: 32,
                                     height: 32,
@@ -217,7 +212,33 @@ class _CreateTodoScreenState extends State<CreateTodoScreen> {
                     ),
                   ),
                 ),
-                onPressed: () {},
+                //TODO: Переделать баннер, так чтобы он появляся сверху
+                onPressed: () {
+                  if (colorIndex == null) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: const Text('Выберите цвет для задачи'),
+                        backgroundColor: Theme.of(context).colorScheme.surface,
+                        action: SnackBarAction(
+                          label: 'Закрыть',
+                          textColor: Theme.of(context).colorScheme.primary,
+                          onPressed: () {
+                            ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                          },
+                        ),
+                      ),
+                    );
+                  } else {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MenuScreen(
+                          colorIndex: colorIndex!,
+                        ),
+                      ),
+                    );
+                  }
+                },
                 child: Text(
                   'Открыть ToDo',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
