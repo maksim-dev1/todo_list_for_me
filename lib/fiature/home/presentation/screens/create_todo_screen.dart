@@ -212,19 +212,18 @@ class _CreateTodoScreenState extends State<CreateTodoScreen> {
                     ),
                   ),
                 ),
-                //TODO: Переделать баннер, так чтобы он появляся сверху
                 onPressed: () {
                   if (colorIndex == null) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: const Text('Выберите цвет для задачи'),
-                        backgroundColor: Theme.of(context).colorScheme.surface,
-                        action: SnackBarAction(
-                          label: 'Закрыть',
-                          textColor: Theme.of(context).colorScheme.primary,
-                          onPressed: () {
-                            ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                          },
+                        backgroundColor: Theme.of(context).colorScheme.error,
+                        dismissDirection: DismissDirection.up,
+                        behavior: SnackBarBehavior.floating,
+                        content: Text('Выберите цвет для вашей первой задачи'),
+                        margin: EdgeInsets.only(
+                          left: 10,
+                          right: 10,
+                          bottom: MediaQuery.of(context).size.height - 80,
                         ),
                       ),
                     );

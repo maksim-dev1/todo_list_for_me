@@ -7,12 +7,20 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(padding: EdgeInsets.all(0),
-      child: Row(
-        children: [
-          
-        ],
-      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(vertical: 24),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Column(
+              children: [
+                Text('Today'),
+                Text('data'),
+              ],
+            ),
+            IconButton(onPressed: () {}, icon: Icon(Icons.settings))
+          ],
+        ),
       ),
     );
   }
