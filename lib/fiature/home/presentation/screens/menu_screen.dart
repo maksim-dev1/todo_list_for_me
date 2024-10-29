@@ -40,7 +40,9 @@ class HomeScreen extends StatelessWidget {
                 const Spacer(),
                 IconButton(
                   onPressed: () {},
-                  icon: SvgPicture.asset('assets/home/setting.svg'),
+                  icon: SvgPicture.asset(
+                    'assets/home/setting.svg',
+                  ),
                 )
               ],
             ),
@@ -63,7 +65,6 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 68,
                   width: double.infinity,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
@@ -79,15 +80,22 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(18),
-                      child: Row(
+                      padding: const EdgeInsets.only(
+                          top: 8, bottom: 16, right: 16, left: 8),
+                      child: Column(
                         children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.add_box,
-                              color: colorsTask[colorIndex],
-                            ),
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {},
+                                icon: SvgPicture.asset(
+                                  'assets/home/add_task.svg',
+                                  colorFilter: ColorFilter.mode(
+                                      colorsTask[colorIndex], BlendMode.srcIn),
+                                ),
+                              ),
+                              Text('Нажмите плюс, чтобы создать новую задачу')
+                            ],
                           ),
                         ],
                       ),
