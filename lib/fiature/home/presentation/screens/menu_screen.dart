@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 34,
             ),
             Column(
@@ -94,7 +94,14 @@ class HomeScreen extends StatelessWidget {
                                       colorsTask[colorIndex], BlendMode.srcIn),
                                 ),
                               ),
-                              Text('Нажмите плюс, чтобы создать новую задачу')
+                              Expanded(
+                                child: Text(
+                                  'Нажмите плюс, чтобы создать новую задачу',
+                                  softWrap: true,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              )
                             ],
                           ),
                         ],
