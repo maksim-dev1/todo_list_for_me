@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 70, right: 10, left: 24),
+        padding: const EdgeInsets.only(top: 80, right: 10, left: 24),
         child: Column(
           children: [
             Row(
@@ -38,12 +38,6 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 const Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/home/setting.svg',
-                  ),
-                )
               ],
             ),
             const SizedBox(
@@ -97,13 +91,59 @@ class HomeScreen extends StatelessWidget {
                               Expanded(
                                 child: Text(
                                   'Нажмите плюс, чтобы создать новую задачу',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium
+                                      ?.copyWith(height: 1),
                                   softWrap: true,
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                 ),
-                              )
+                              ),
                             ],
                           ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 8),
+                            child: Divider(
+                              height: 1,
+                              color: Color.fromRGBO(224, 229, 237, 1),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Добавьте свою задачу',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall
+                                      ?.copyWith(
+                                        color: const Color.fromRGBO(
+                                            118, 126, 140, 1),
+                                      ),
+                                ),
+                                const Spacer(),
+                                //TODO: Добавить форматирование даты (Today . Mon 20 Jul 2022)
+                                Text(
+                                  DateTime.now().toString(),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall
+                                      ?.copyWith(
+                                        color: const Color.fromRGBO(
+                                            118, 126, 140, 1),
+                                      ),
+                                )
+                              ],
+                            ),
+                          )
                         ],
                       ),
                     ),
