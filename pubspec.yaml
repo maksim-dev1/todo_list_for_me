@@ -59,6 +59,7 @@ flutter:
   assets:
     - assets/onboarding/
     - assets/home/
+    - assets/add_task/
 
 
   # fonts:

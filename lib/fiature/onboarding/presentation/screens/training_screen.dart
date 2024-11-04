@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo_list_for_me/common/colors/colors.dart';
+import 'package:todo_list_for_me/fiature/add_task/presentation/widgets/bottom_sheet/bottom_sheet_fill_task.dart';
 
 class HomeScreen extends StatelessWidget {
   final int colorIndex;
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 80, right: 10, left: 24),
+        padding: const EdgeInsets.only(top: 80, right: 20, left: 20),
         child: Column(
           children: [
             Row(
@@ -81,7 +82,14 @@ class HomeScreen extends StatelessWidget {
                           Row(
                             children: [
                               IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    builder: (context) {
+                                      return BottomSheetFillTask();
+                                    },
+                                  );
+                                },
                                 icon: SvgPicture.asset(
                                   'assets/home/add_task.svg',
                                   colorFilter: ColorFilter.mode(
