@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo_list_for_me/common/colors/colors.dart';
-import 'package:todo_list_for_me/fiature/add_task/presentation/widgets/bottom_sheet/bottom_sheet_fill_task.dart';
+import 'package:todo_list_for_me/fiature/add_task/presentation/widgets/bottom_sheet_fill_task.dart';
 
 class HomeScreen extends StatelessWidget {
   final int colorIndex;
@@ -86,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                                   showModalBottomSheet(
                                     context: context,
                                     builder: (context) {
-                                      return BottomSheetFillTask();
+                                      return const BottomSheetFillTask();
                                     },
                                   );
                                 },
